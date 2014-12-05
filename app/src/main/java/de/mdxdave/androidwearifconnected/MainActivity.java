@@ -32,6 +32,7 @@ public class MainActivity extends ActionBarActivity {
             public void onResult(NodeApi.GetConnectedNodesResult result) {
                 TextView status = (TextView) findViewById(R.id.status);
                 if (result.getNodes().size() > 0) {
+	   	            // Check issue for getDisplayName(): https://code.google.com/p/android/issues/detail?id=76108
                     status.setText(getString(R.string.wear_connected)+":\n"+result.getNodes().get(0).getDisplayName());
                 } else {
                     status.setText(getString(R.string.wear_disconnected));
